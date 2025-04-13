@@ -1,0 +1,546 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		BBD968DA2DAC275000B1812E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBD968C32DAC274F00B1812E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBD968CA2DAC274F00B1812E;
+			remoteInfo = utklippstavle;
+		};
+		BBD968E42DAC275000B1812E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBD968C32DAC274F00B1812E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBD968CA2DAC274F00B1812E;
+			remoteInfo = utklippstavle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BBD968CB2DAC274F00B1812E /* utklippstavle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = utklippstavle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBD968D92DAC275000B1812E /* utklippstavleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = utklippstavleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBD968E32DAC275000B1812E /* utklippstavleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = utklippstavleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		BBD968CD2DAC274F00B1812E /* utklippstavle */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = utklippstavle;
+			sourceTree = "<group>";
+		};
+		BBD968DC2DAC275000B1812E /* utklippstavleTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = utklippstavleTests;
+			sourceTree = "<group>";
+		};
+		BBD968E62DAC275000B1812E /* utklippstavleUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = utklippstavleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BBD968C82DAC274F00B1812E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBD968D62DAC275000B1812E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBD968E02DAC275000B1812E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BBD968C22DAC274F00B1812E = {
+			isa = PBXGroup;
+			children = (
+				BBD968CD2DAC274F00B1812E /* utklippstavle */,
+				BBD968DC2DAC275000B1812E /* utklippstavleTests */,
+				BBD968E62DAC275000B1812E /* utklippstavleUITests */,
+				BBD968CC2DAC274F00B1812E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BBD968CC2DAC274F00B1812E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BBD968CB2DAC274F00B1812E /* utklippstavle.app */,
+				BBD968D92DAC275000B1812E /* utklippstavleTests.xctest */,
+				BBD968E32DAC275000B1812E /* utklippstavleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BBD968CA2DAC274F00B1812E /* utklippstavle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBD968ED2DAC275000B1812E /* Build configuration list for PBXNativeTarget "utklippstavle" */;
+			buildPhases = (
+				BBD968C72DAC274F00B1812E /* Sources */,
+				BBD968C82DAC274F00B1812E /* Frameworks */,
+				BBD968C92DAC274F00B1812E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				BBD968CD2DAC274F00B1812E /* utklippstavle */,
+			);
+			name = utklippstavle;
+			packageProductDependencies = (
+			);
+			productName = utklippstavle;
+			productReference = BBD968CB2DAC274F00B1812E /* utklippstavle.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BBD968D82DAC275000B1812E /* utklippstavleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBD968F02DAC275000B1812E /* Build configuration list for PBXNativeTarget "utklippstavleTests" */;
+			buildPhases = (
+				BBD968D52DAC275000B1812E /* Sources */,
+				BBD968D62DAC275000B1812E /* Frameworks */,
+				BBD968D72DAC275000B1812E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBD968DB2DAC275000B1812E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BBD968DC2DAC275000B1812E /* utklippstavleTests */,
+			);
+			name = utklippstavleTests;
+			packageProductDependencies = (
+			);
+			productName = utklippstavleTests;
+			productReference = BBD968D92DAC275000B1812E /* utklippstavleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BBD968E22DAC275000B1812E /* utklippstavleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBD968F32DAC275000B1812E /* Build configuration list for PBXNativeTarget "utklippstavleUITests" */;
+			buildPhases = (
+				BBD968DF2DAC275000B1812E /* Sources */,
+				BBD968E02DAC275000B1812E /* Frameworks */,
+				BBD968E12DAC275000B1812E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBD968E52DAC275000B1812E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BBD968E62DAC275000B1812E /* utklippstavleUITests */,
+			);
+			name = utklippstavleUITests;
+			packageProductDependencies = (
+			);
+			productName = utklippstavleUITests;
+			productReference = BBD968E32DAC275000B1812E /* utklippstavleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BBD968C32DAC274F00B1812E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1630;
+				LastUpgradeCheck = 1630;
+				TargetAttributes = {
+					BBD968CA2DAC274F00B1812E = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					BBD968D82DAC275000B1812E = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = BBD968CA2DAC274F00B1812E;
+					};
+					BBD968E22DAC275000B1812E = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = BBD968CA2DAC274F00B1812E;
+					};
+				};
+			};
+			buildConfigurationList = BBD968C62DAC274F00B1812E /* Build configuration list for PBXProject "utklippstavle" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BBD968C22DAC274F00B1812E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = BBD968CC2DAC274F00B1812E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BBD968CA2DAC274F00B1812E /* utklippstavle */,
+				BBD968D82DAC275000B1812E /* utklippstavleTests */,
+				BBD968E22DAC275000B1812E /* utklippstavleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BBD968C92DAC274F00B1812E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBD968D72DAC275000B1812E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBD968E12DAC275000B1812E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BBD968C72DAC274F00B1812E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBD968D52DAC275000B1812E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBD968DF2DAC275000B1812E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BBD968DB2DAC275000B1812E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBD968CA2DAC274F00B1812E /* utklippstavle */;
+			targetProxy = BBD968DA2DAC275000B1812E /* PBXContainerItemProxy */;
+		};
+		BBD968E52DAC275000B1812E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBD968CA2DAC274F00B1812E /* utklippstavle */;
+			targetProxy = BBD968E42DAC275000B1812E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BBD968EB2DAC275000B1812E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BBD968EC2DAC275000B1812E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		BBD968EE2DAC275000B1812E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = utklippstavle/utklippstavle.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aadnesdjuve.utklippstavle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BBD968EF2DAC275000B1812E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = utklippstavle/utklippstavle.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aadnesdjuve.utklippstavle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		BBD968F12DAC275000B1812E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aadnesdjuve.utklippstavleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/utklippstavle.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/utklippstavle";
+			};
+			name = Debug;
+		};
+		BBD968F22DAC275000B1812E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aadnesdjuve.utklippstavleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/utklippstavle.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/utklippstavle";
+			};
+			name = Release;
+		};
+		BBD968F42DAC275000B1812E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aadnesdjuve.utklippstavleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = utklippstavle;
+			};
+			name = Debug;
+		};
+		BBD968F52DAC275000B1812E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aadnesdjuve.utklippstavleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = utklippstavle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BBD968C62DAC274F00B1812E /* Build configuration list for PBXProject "utklippstavle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBD968EB2DAC275000B1812E /* Debug */,
+				BBD968EC2DAC275000B1812E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBD968ED2DAC275000B1812E /* Build configuration list for PBXNativeTarget "utklippstavle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBD968EE2DAC275000B1812E /* Debug */,
+				BBD968EF2DAC275000B1812E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBD968F02DAC275000B1812E /* Build configuration list for PBXNativeTarget "utklippstavleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBD968F12DAC275000B1812E /* Debug */,
+				BBD968F22DAC275000B1812E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBD968F32DAC275000B1812E /* Build configuration list for PBXNativeTarget "utklippstavleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBD968F42DAC275000B1812E /* Debug */,
+				BBD968F52DAC275000B1812E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BBD968C32DAC274F00B1812E /* Project object */;
+}
