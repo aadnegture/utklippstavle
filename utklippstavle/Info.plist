@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>This app needs accessibility permissions to detect keyboard shortcuts for showing clipboard history.</string>
+	<key>NSAccessibilityUsageDescription</key>
+	<string>The app needs accessibility permissions to detect global keyboard shortcuts.</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.aadnesdjuve.utklippstavle</string>
+	<key>CFBundleName</key>
+	<string>utklippstavle</string>
+	<key>LSUIElement</key>
+	<true/>
+</dict>
+</plist>
