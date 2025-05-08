@@ -16,23 +16,117 @@ struct ClipboardHistoryApp: App {
 // App Delegate
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     var statusBarItem: NSStatusItem!
+    var preferencesWindow: NSWindow?
     var clipboardHistory: [ClipboardItem] = []
     var popover: NSPopover!
     let maximumHistoryItems = 20
     var monitor: Any?
     var lastChangeCount: Int = 0
+    var preferences: AppPreferences = AppPreferences.load()
+
+    func setupPreferencesMenu() {
+        // Create a menu
+        let mainMenu = NSMenu()
+        let appMenuItem = NSMenuItem(title: "App", action: nil, keyEquivalent: "")
+        let appMenu = NSMenu()
+        
+        // Create a menu item for preferences
+        let preferencesItem = NSMenuItem(
+            title: "Preferences...",
+            action: #selector(togglePreferencesWindow),
+            keyEquivalent: ","
+        )
+        preferencesItem.keyEquivalentModifierMask = .command
+        
+        // Add menu items
+        appMenu.addItem(preferencesItem)
+        appMenu.addItem(NSMenuItem.separator())
+        
+        // Add quit item
+        let quitItem = NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+        quitItem.keyEquivalentModifierMask = .command
+        appMenu.addItem(quitItem)
+        
+        // Set up menu structure
+        appMenuItem.submenu = appMenu
+        mainMenu.addItem(appMenuItem)
+        NSApp.mainMenu = mainMenu
+    }
+
+    @objc func togglePreferencesWindow() {
+        if let window = preferencesWindow {
+            if window.isVisible {
+                window.orderOut(nil)
+            } else {
+                // Update the view with current preferences
+                if let contentView = window.contentView as? NSHostingView<PreferencesView> {
+                    let newView = PreferencesView(
+                        preferences: preferences,
+                        onSave: { [weak self] newPrefs in
+                            guard let self = self else { return }
+                            self.preferences = newPrefs
+                            self.preferences.save()
+                            window.orderOut(nil)
+                            // Update clipboard view with new preferences
+                            self.updatePopoverContent()
+                        }
+                    )
+                    contentView.rootView = newView
+                }
+                window.makeKeyAndOrderFront(nil)
+            }
+        } else {
+            // Create the window
+            let window = NSWindow(
+                contentRect: NSRect(x: 0, y: 0, width: 350, height: 150),
+                styleMask: [.titled, .closable],
+                backing: .buffered,
+                defer: false
+            )
+            window.title = "Preferences"
+            window.center()
+            
+            let prefsView = PreferencesView(
+                preferences: preferences,
+                onSave: { [weak self] newPrefs in
+                    guard let self = self else { return }
+                    self.preferences = newPrefs
+                    self.preferences.save()
+                    window.orderOut(nil)
+                    // Update clipboard view with new preferences
+                    self.updatePopoverContent()
+                }
+            )
+            
+            window.contentView = NSHostingView(rootView: prefsView)
+            window.makeKeyAndOrderFront(nil)
+            preferencesWindow = window
+        }
+    }
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.setActivationPolicy(.accessory)
+
+        setupPreferencesMenu()
         // Setup status bar icon
         statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         if let button = statusBarItem.button {
             button.image = NSImage(systemSymbolName: "clipboard", accessibilityDescription: "Clipboard History")
-            button.action = #selector(togglePopover(_:))
+            
+            // Left click shows clipboard history
+            button.action = #selector(showPopover)
+            
+            // Right click menu has preferences
+            let menu = NSMenu()
+            menu.addItem(NSMenuItem(title: "Preferences...", action: #selector(togglePreferencesWindow), keyEquivalent: ","))
+            menu.addItem(NSMenuItem.separator())
+            menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+            
+            statusBarItem.menu = menu
         }
         
         // Setup popover
-        let contentView = ClipboardHistoryView(clipboardItems: .constant(clipboardHistory), onItemSelected: { item in
+        let contentView = ClipboardHistoryView(clipboardItems: .constant(clipboardHistory), preferences: preferences, onItemSelected: { item in
             self.copyToClipboard(item.text)
             self.closePopover()
         })
@@ -94,7 +188,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                     clipboardHistory.insert(newItem, at: 0)
                     
                     // Limit history size
-                    if clipboardHistory.count > maximumHistoryItems {
+                    if clipboardHistory.count > preferences.maximumHistoryItems {
                         clipboardHistory.removeLast()
                     }
                     
@@ -108,7 +202,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     func updatePopoverContent() {
         print("Function called: \(#function)")
         if let contentController = popover.contentViewController as? NSHostingController<ClipboardHistoryView> {
-            contentController.rootView = ClipboardHistoryView(clipboardItems: .constant(clipboardHistory), onItemSelected: { item in
+            contentController.rootView = ClipboardHistoryView(clipboardItems: .constant(clipboardHistory), preferences: preferences, onItemSelected: { item in
                 self.copyToClipboard(item.text)
                 self.closePopover()
             })
@@ -116,7 +210,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
     
     @objc func togglePopover(_ sender: AnyObject?) {
-        print("Function called: \(#function)")
+        // For right clicks, the menu will be handled automatically by macOS
+        // We only need to handle left clicks to show the popover
+        
+        if let event = NSApp.currentEvent, event.type == .rightMouseUp {
+            return  // Do nothing, system will show the menu
+        }
+        
+        // Left click - toggle the popover
         if popover.isShown {
             closePopover()
         } else {
@@ -124,7 +225,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         }
     }
     
-    func showPopover() {
+    @objc func showPopover() {
         print("Function called: \(#function)")
         if let button = statusBarItem.button {
             updatePopoverContent()
@@ -156,10 +257,71 @@ struct ClipboardItem: Identifiable, Equatable {
     }
 }
 
-// Clipboard history view
+// Add after your ClipboardItem struct
+struct AppPreferences {
+    var maximumHistoryItems: Int = 20
+    var itemLineLimit: Int = 10
+    
+    // Load from UserDefaults
+    static func load() -> AppPreferences {
+        let defaults = UserDefaults.standard
+        var prefs = AppPreferences()
+        
+        if defaults.object(forKey: "maximumHistoryItems") != nil {
+            prefs.maximumHistoryItems = defaults.integer(forKey: "maximumHistoryItems")
+        }
+        
+        if defaults.object(forKey: "itemLineLimit") != nil {
+            prefs.itemLineLimit = defaults.integer(forKey: "itemLineLimit")
+        }
+        
+        return prefs
+    }
+    
+    // Save to UserDefaults
+    func save() {
+        let defaults = UserDefaults.standard
+        defaults.set(maximumHistoryItems, forKey: "maximumHistoryItems")
+        defaults.set(itemLineLimit, forKey: "itemLineLimit")
+    }
+}
+
+struct PreferencesView: View {
+    @State private var localPreferences: AppPreferences
+    let onSave: (AppPreferences) -> Void
+    
+    init(preferences: AppPreferences, onSave: @escaping (AppPreferences) -> Void) {
+        _localPreferences = State(initialValue: preferences)
+        self.onSave = onSave
+    }
+    
+    var body: some View {
+        Form {
+            Section(header: Text("Clipboard History")) {
+                Stepper("Maximum items: \(localPreferences.maximumHistoryItems)", 
+                    value: $localPreferences.maximumHistoryItems, in: 5...100)
+                Stepper("Line limit per item: \(localPreferences.itemLineLimit)", 
+                    value: $localPreferences.itemLineLimit, in: 1...20)
+            }
+            
+            Button("Save") {
+                onSave(localPreferences)
+            }
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .padding(.top)
+        }
+        .padding()
+        .frame(width: 350, height: 150)
+    }
+}
+
 struct ClipboardHistoryView: View {
     @Binding var clipboardItems: [ClipboardItem]
+    let preferences: AppPreferences
     let onItemSelected: (ClipboardItem) -> Void
+    
+    // Track when view appears for keyboard focus
+    @State private var isViewActive = false
     
     var body: some View {
         VStack {
@@ -173,12 +335,24 @@ struct ClipboardHistoryView: View {
                     .padding()
                 Spacer()
             } else {
+                Text("Press ⌘1-⌘9 to select items or click an item")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                    .padding(.bottom, 5)
+                
                 List {
-                    ForEach(clipboardItems) { item in
+                    ForEach(Array(clipboardItems.prefix(9).enumerated()), id: \.element.id) { index, item in
                         VStack(alignment: .leading) {
-                            Text(item.text)
-                                .lineLimit(10)
-                                .truncationMode(.tail)
+                            HStack {
+                                Text("\(index + 1)")
+                                    .foregroundColor(.gray)
+                                    .font(.system(size: 12, weight: .bold))
+                                    .frame(width: 20)
+                                
+                                Text(item.text)
+                                    .lineLimit(preferences.itemLineLimit)
+                                    .truncationMode(.tail)
+                            }
                             
                             Text(formatDate(item.timestamp))
                                 .font(.caption)
@@ -196,6 +370,14 @@ struct ClipboardHistoryView: View {
             }
         }
         .frame(width: 400, height: 400)
+        .onAppear {
+            isViewActive = true
+        }
+        .onDisappear {
+            isViewActive = false
+        }
+        // Add keyboard shortcut handling
+        .background(KeyboardShortcutHandler(isActive: isViewActive, items: clipboardItems, onItemSelected: onItemSelected))
     }
     
     func formatDate(_ date: Date) -> String {
@@ -205,3 +387,76 @@ struct ClipboardHistoryView: View {
         return formatter.string(from: date)
     }
 }
+
+// Helper view to handle keyboard shortcuts
+struct KeyboardShortcutHandler: NSViewRepresentable {
+    var isActive: Bool
+    var items: [ClipboardItem]
+    var onItemSelected: (ClipboardItem) -> Void
+    
+    func makeNSView(context: Context) -> NSView {
+        let view = ShortcutView()
+        view.isActive = isActive
+        view.items = items
+        view.onItemSelected = onItemSelected
+        return view
+    }
+    
+    func updateNSView(_ nsView: NSView, context: Context) {
+        if let view = nsView as? ShortcutView {
+            view.isActive = isActive
+            view.items = items
+            view.onItemSelected = onItemSelected
+        }
+    }
+    
+    class ShortcutView: NSView {
+        var isActive = false
+        var items: [ClipboardItem] = []
+        var onItemSelected: ((ClipboardItem) -> Void)?
+        var keyMonitor: Any?
+        
+        override func viewDidMoveToWindow() {
+            super.viewDidMoveToWindow()
+            if window != nil {
+                setupKeyMonitor()
+            } else {
+                removeKeyMonitor()
+            }
+        }
+        
+        func setupKeyMonitor() {
+            keyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
+                guard let self = self, self.isActive else { return event }
+                
+                // Check if it's a command key
+                if event.modifierFlags.contains(.command) {
+                    // Check if it's a number key (1-9)
+                    if event.keyCode >= 18 && event.keyCode <= 26 {
+                        let index = Int(event.keyCode) - 18 // 18 is keycode for 1
+                        if index < self.items.count {
+                            DispatchQueue.main.async {
+                                self.onItemSelected?(self.items[index])
+                            }
+                            return nil // Consume the event
+                        }
+                    }
+                }
+                return event
+            }
+        }
+        
+        func removeKeyMonitor() {
+            if let monitor = keyMonitor {
+                NSEvent.removeMonitor(monitor)
+                keyMonitor = nil
+            }
+        }
+        
+        deinit {
+            removeKeyMonitor()
+        }
+    }
+}
+
+
