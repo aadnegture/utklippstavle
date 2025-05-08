@@ -1,0 +1,25 @@
+   # Xcode
+   .DS_Store
+   xcuserdata/
+   DerivedData/
+   .build/
+   
+   # Build products
+   build/
+   *.o
+   *.LinkFileList
+   *.hmap
+   
+   # App packaging
+   *.ipa
+   *.dSYM.zip
+   *.dSYM
+   
+   # Swift Package Manager
+   .swiftpm/
+   .build/
+   
+   # macOS
+   .DS_Store
+   .AppleDouble
+   .LSOverride
